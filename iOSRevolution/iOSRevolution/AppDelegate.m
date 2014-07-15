@@ -35,6 +35,16 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    // DONT LEAVE THIS HERE, MOVE IT TO ITS OWN OBJECT SOON
+    
+    // Create a string with the filepath for Dad's sample data file
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"20140521Firstvolume.bin" ofType:nil];
+    NSLog(@"%@", filepath);
+    
+    // Bring the hex data in from sample data file to an NSData object
+    NSData *sample = [NSData dataWithContentsOfFile:filepath];
+    NSLog(@"%zd", sample.length);
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
