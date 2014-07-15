@@ -22,6 +22,11 @@
 		104332641975AEE300F81FFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104332431975AEE300F81FFB /* UIKit.framework */; };
 		1043326C1975AEE300F81FFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1043326A1975AEE300F81FFB /* InfoPlist.strings */; };
 		1043326E1975AEE300F81FFB /* iOSRevolutionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1043326D1975AEE300F81FFB /* iOSRevolutionTests.m */; };
+		104332781975C80D00F81FFB /* dBMED small app store logo FINAL s.png in Resources */ = {isa = PBXBuildFile; fileRef = 104332771975C80D00F81FFB /* dBMED small app store logo FINAL s.png */; };
+		1043327A1975C83600F81FFB /* dBMEDx cover page logo FINAL s1.png in Resources */ = {isa = PBXBuildFile; fileRef = 104332791975C83600F81FFB /* dBMEDx cover page logo FINAL s1.png */; };
+		1043327C1975C87900F81FFB /* dBMEDx cover page logo FINAL s2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1043327B1975C87900F81FFB /* dBMEDx cover page logo FINAL s2.png */; };
+		1043327E1975C9C400F81FFB /* dBMEDxBluetoothScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1043327D1975C9C400F81FFB /* dBMEDxBluetoothScreen.png */; };
+		104332801975C9F000F81FFB /* photo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 1043327F1975C9F000F81FFB /* photo.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		104332691975AEE300F81FFB /* iOSRevolutionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSRevolutionTests-Info.plist"; sourceTree = "<group>"; };
 		1043326B1975AEE300F81FFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1043326D1975AEE300F81FFB /* iOSRevolutionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSRevolutionTests.m; sourceTree = "<group>"; };
+		104332771975C80D00F81FFB /* dBMED small app store logo FINAL s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dBMED small app store logo FINAL s.png"; sourceTree = "<group>"; };
+		104332791975C83600F81FFB /* dBMEDx cover page logo FINAL s1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dBMEDx cover page logo FINAL s1.png"; sourceTree = "<group>"; };
+		1043327B1975C87900F81FFB /* dBMEDx cover page logo FINAL s2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dBMEDx cover page logo FINAL s2.png"; sourceTree = "<group>"; };
+		1043327D1975C9C400F81FFB /* dBMEDxBluetoothScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dBMEDxBluetoothScreen.png; sourceTree = "<group>"; };
+		1043327F1975C9F000F81FFB /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,11 @@
 		104332461975AEE300F81FFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1043327F1975C9F000F81FFB /* photo.PNG */,
+				1043327D1975C9C400F81FFB /* dBMEDxBluetoothScreen.png */,
+				1043327B1975C87900F81FFB /* dBMEDx cover page logo FINAL s2.png */,
+				104332791975C83600F81FFB /* dBMEDx cover page logo FINAL s1.png */,
+				104332771975C80D00F81FFB /* dBMED small app store logo FINAL s.png */,
 				104332471975AEE300F81FFB /* iOSRevolution-Info.plist */,
 				104332481975AEE300F81FFB /* InfoPlist.strings */,
 				1043324B1975AEE300F81FFB /* main.m */,
@@ -234,7 +249,12 @@
 				104332561975AEE300F81FFB /* Main_iPad.storyboard in Resources */,
 				1043325B1975AEE300F81FFB /* Images.xcassets in Resources */,
 				104332531975AEE300F81FFB /* Main_iPhone.storyboard in Resources */,
+				1043327C1975C87900F81FFB /* dBMEDx cover page logo FINAL s2.png in Resources */,
 				1043324A1975AEE300F81FFB /* InfoPlist.strings in Resources */,
+				104332801975C9F000F81FFB /* photo.PNG in Resources */,
+				104332781975C80D00F81FFB /* dBMED small app store logo FINAL s.png in Resources */,
+				1043327E1975C9C400F81FFB /* dBMEDxBluetoothScreen.png in Resources */,
+				1043327A1975C83600F81FFB /* dBMEDx cover page logo FINAL s1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +490,7 @@
 				104332731975AEE300F81FFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		104332741975AEE300F81FFB /* Build configuration list for PBXNativeTarget "iOSRevolutionTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +499,7 @@
 				104332761975AEE300F81FFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
