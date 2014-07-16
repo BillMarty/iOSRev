@@ -39,11 +39,53 @@
     
     // Create a string with the filepath for Dad's sample data file
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"20140521Firstvolume.bin" ofType:nil];
-    NSLog(@"%@", filepath);
+    //NSLog(@"%@", filepath);
     
     // Bring the hex data in from sample data file to an NSData object
     NSData *sample = [NSData dataWithContentsOfFile:filepath];
-    NSLog(@"%zd", sample.length);
+    // NSLog(@"%zd", sample.length);
+    
+    // Create range and buffer for use in grabbing the first 4 bytes
+    NSRange range;
+    range.location = 0;
+    range.length = 4;
+    
+    unsigned char *charbuffer;
+    charbuffer = malloc(100);
+    
+    unsigned short *shortbuffer;
+    shortbuffer = malloc(1000);
+    
+    // Grab the first 4 bytes of sample, put them in buffer
+    [sample getBytes:charbuffer range:range];
+    
+    // Iterate over buffer and print values of the 4 bytes
+    // for (int i = 0; i < 4; i++) {
+    //     NSLog(@" %i HEX: %x  DECIMAL: %hhu", i, buffer[i], buffer[i]);
+    // }
+    
+    // Print out the characters for the d B I . part
+    for (int i = 0; i < 4; i++) {
+        NSString *string = [NSString stringWithFormat:@"%c", charbuffer[i]];
+        NSLog(@"%@", string);
+    }
+    
+    // Grab the next 8 bytes in sets of 2
+    range.location = 4;
+    range.length = 8;
+    
+    [sample getBytes:shortbuffer range:range];
+    
+    // Print out the numbers for the read stats section
+    for (int i = 0; i < 4; i++) {
+        NSLog(@"%i", shortbuffer[i]);
+    }
+    
+    // Testing how I can access the header items
+    // unsigned short one = buffer[0];
+    // NSLog(@"%x", one);
+    
+    
     
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
