@@ -10,20 +10,37 @@
 
 @implementation DBMScan
 
-- (void)calculateFilepath:(NSString *)file {
-    _filepath = [[NSBundle mainBundle] pathForResource:file ofType:nil];
-}
-
-- (void)grabWholeScan {
-    _wholeScan = [NSData dataWithContentsOfFile:_filepath];
-}
-
 - (void)calculateLength {
+    NSLog(@"Starting calculateLength");
+    
     _length = _wholeScan.length;
+    
+    NSLog(@"Finished calculateLength");
 }
 
 - (void)logScanInfo {
-    NSLog(@"Scan data from the filepath: %@ \n Scan length: %zd", _filepath, _length);
+    NSLog(@"Starting logScanInfo");
+    
+    NSLog(@"Scan length: %zd", _length);
+    // NSLog(@"%@", _wholeScan);
+    
+    NSLog(@"Finished logScanInfo");
+}
+
+- (void)headerMake {
+    NSLog(@"Starting headerMake");
+    
+    _header = [[DBMHeader alloc] init];
+    [_header firstFour:_wholeScan];
+    [_header dimensionsFour:_wholeScan];
+    [_header resolutionFive:_wholeScan];
+    [_header schemeAndWallsTwo:_wholeScan];
+    [_header volumeOne:_wholeScan];
+    [_header rsrvd2:_wholeScan];
+    [_header n:_wholeScan];
+    [_header logHeader];
+    
+    NSLog(@"Finished headerMake");
 }
 
 @end

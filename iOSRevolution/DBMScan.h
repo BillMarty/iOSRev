@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DBMHeader.h"
 
 @interface DBMScan : NSObject
 
 @property (nonatomic, readonly) unsigned int length;
-@property (nonatomic, readonly) NSString *filepath;
-@property (nonatomic, copy) NSData *wholeScan;
+@property (nonatomic) NSData *wholeScan;
+@property (nonatomic) DBMHeader *header;
 
-- (void)calculateFilepath:(NSString *)file;
-- (void)grabWholeScan;
 - (void)calculateLength;
 - (void)logScanInfo;
+- (void)headerMake;
 
 @end

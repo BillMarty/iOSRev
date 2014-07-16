@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DBMMediator.h"
+#import "DBMScan.h"
+#import "DBMHeader.h"
 
 @implementation AppDelegate
 
@@ -35,15 +38,11 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // DONT LEAVE THIS HERE, MOVE IT TO ITS OWN OBJECT SOON
     
-    // Create a string with the filepath for Dad's sample data file
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"20140521Firstvolume.bin" ofType:nil];
-    //NSLog(@"%@", filepath);
+    DBMMediator *mediator = [[DBMMediator alloc] init];
+    [mediator putItAllTogether];
     
-    // Bring the hex data in from sample data file to an NSData object
-    NSData *sample = [NSData dataWithContentsOfFile:filepath];
-    // NSLog(@"%zd", sample.length);
+    /*// DONT LEAVE THIS HERE, MOVE IT TO ITS OWN OBJECT SOON
     
     // Create range and buffer for use in grabbing the first 4 bytes
     NSRange range;
@@ -84,7 +83,7 @@
     // Testing how I can access the header items
     // unsigned short one = buffer[0];
     // NSLog(@"%x", one);
-    
+    */
     
     
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
