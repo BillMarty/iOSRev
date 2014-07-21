@@ -31,6 +31,7 @@
     NSLog(@"Starting headerMake");
     
     _header = [[DBMHeader alloc] init];
+    
     [_header firstFour:_wholeScan];
     [_header dimensionsFour:_wholeScan];
     [_header resolutionFive:_wholeScan];
@@ -38,7 +39,7 @@
     [_header volumeOne:_wholeScan];
     [_header rsrvd2:_wholeScan];
     [_header n:_wholeScan];
-    [_header logHeader];
+    // [_header logHeader];
     
     NSLog(@"Finished headerMake");
 }

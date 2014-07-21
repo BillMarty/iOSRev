@@ -33,11 +33,10 @@
 - (void)pushToScan {
     NSLog(@"Starting pushToScan");
     
-    _scan = [[DBMScan alloc] init];
+    if (!_scan) {
+        _scan = [[DBMScan alloc] init];
+    }
     _scan.wholeScan = _wholeScan;
-    [_scan calculateLength];
-    [_scan logScanInfo];
-    [_scan headerMake];
     
     NSLog(@"Finished pushToScan");
 }

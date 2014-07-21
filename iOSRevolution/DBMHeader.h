@@ -13,6 +13,7 @@
     unsigned char *charbuffer;
     unsigned short *shortbuffer;
     unsigned int *intbuffer;
+    NSMutableArray *headerArray;
 }
 @property (nonatomic) unsigned char byte1;
 @property (nonatomic) unsigned char byte2;

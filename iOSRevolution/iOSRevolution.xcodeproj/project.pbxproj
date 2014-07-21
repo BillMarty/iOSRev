@@ -31,6 +31,10 @@
 		10C665BF1976CF5D002C735C /* DBMScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665BE1976CF5D002C735C /* DBMScan.m */; };
 		10C665C21976E79C002C735C /* DBMMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C11976E79C002C735C /* DBMMediator.m */; };
 		10C665C51976FB79002C735C /* DBMHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C41976FB79002C735C /* DBMHeader.m */; };
+		10C665C81977393C002C735C /* BlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C71977393C002C735C /* BlueToothViewController.m */; };
+		10C665CB19773965002C735C /* JellyBellyButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665CA19773965002C735C /* JellyBellyButtonViewController.m */; };
+		10C665CE19773973002C735C /* VolumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665CD19773973002C735C /* VolumeViewController.m */; };
+		10C665D1197DC0A5002C735C /* HeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665D0197DC0A5002C735C /* HeaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,12 +74,20 @@
 		1043327D1975C9C400F81FFB /* dBMEDxBluetoothScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dBMEDxBluetoothScreen.png; sourceTree = "<group>"; };
 		1043327F1975C9F000F81FFB /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
 		104332811975D33500F81FFB /* 20140521Firstvolume.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = 20140521Firstvolume.bin; sourceTree = "<group>"; };
-		10C665BD1976CF5D002C735C /* DBMScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMScan.h; sourceTree = "<group>"; };
-		10C665BE1976CF5D002C735C /* DBMScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMScan.m; sourceTree = "<group>"; };
-		10C665C01976E79C002C735C /* DBMMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMMediator.h; sourceTree = "<group>"; };
-		10C665C11976E79C002C735C /* DBMMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMMediator.m; sourceTree = "<group>"; };
-		10C665C31976FB79002C735C /* DBMHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMHeader.h; sourceTree = "<group>"; };
-		10C665C41976FB79002C735C /* DBMHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMHeader.m; sourceTree = "<group>"; };
+		10C665BD1976CF5D002C735C /* DBMScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMScan.h; path = ../DBMScan.h; sourceTree = "<group>"; };
+		10C665BE1976CF5D002C735C /* DBMScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBMScan.m; path = ../DBMScan.m; sourceTree = "<group>"; };
+		10C665C01976E79C002C735C /* DBMMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMMediator.h; path = ../DBMMediator.h; sourceTree = "<group>"; };
+		10C665C11976E79C002C735C /* DBMMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBMMediator.m; path = ../DBMMediator.m; sourceTree = "<group>"; };
+		10C665C31976FB79002C735C /* DBMHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMHeader.h; path = ../DBMHeader.h; sourceTree = "<group>"; };
+		10C665C41976FB79002C735C /* DBMHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBMHeader.m; path = ../DBMHeader.m; sourceTree = "<group>"; };
+		10C665C61977393C002C735C /* BlueToothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothViewController.h; sourceTree = "<group>"; };
+		10C665C71977393C002C735C /* BlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothViewController.m; sourceTree = "<group>"; };
+		10C665C919773965002C735C /* JellyBellyButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JellyBellyButtonViewController.h; sourceTree = "<group>"; };
+		10C665CA19773965002C735C /* JellyBellyButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JellyBellyButtonViewController.m; sourceTree = "<group>"; };
+		10C665CC19773973002C735C /* VolumeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeViewController.h; sourceTree = "<group>"; };
+		10C665CD19773973002C735C /* VolumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeViewController.m; sourceTree = "<group>"; };
+		10C665CF197DC0A5002C735C /* HeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewController.h; sourceTree = "<group>"; };
+		10C665D0197DC0A5002C735C /* HeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +117,6 @@
 		104332331975AEE300F81FFB = {
 			isa = PBXGroup;
 			children = (
-				10C665C31976FB79002C735C /* DBMHeader.h */,
-				10C665C41976FB79002C735C /* DBMHeader.m */,
-				10C665C01976E79C002C735C /* DBMMediator.h */,
-				10C665C11976E79C002C735C /* DBMMediator.m */,
-				10C665BD1976CF5D002C735C /* DBMScan.h */,
-				10C665BE1976CF5D002C735C /* DBMScan.m */,
 				104332451975AEE300F81FFB /* iOSRevolution */,
 				104332671975AEE300F81FFB /* iOSRevolutionTests */,
 				1043323E1975AEE300F81FFB /* Frameworks */,
@@ -141,10 +147,24 @@
 		104332451975AEE300F81FFB /* iOSRevolution */ = {
 			isa = PBXGroup;
 			children = (
+				10C665C31976FB79002C735C /* DBMHeader.h */,
+				10C665C41976FB79002C735C /* DBMHeader.m */,
+				10C665C01976E79C002C735C /* DBMMediator.h */,
+				10C665C11976E79C002C735C /* DBMMediator.m */,
+				10C665BD1976CF5D002C735C /* DBMScan.h */,
+				10C665BE1976CF5D002C735C /* DBMScan.m */,
 				1043324E1975AEE300F81FFB /* AppDelegate.h */,
 				1043324F1975AEE300F81FFB /* AppDelegate.m */,
 				104332511975AEE300F81FFB /* Main_iPhone.storyboard */,
+				10C665CF197DC0A5002C735C /* HeaderViewController.h */,
+				10C665D0197DC0A5002C735C /* HeaderViewController.m */,
 				104332541975AEE300F81FFB /* Main_iPad.storyboard */,
+				10C665C61977393C002C735C /* BlueToothViewController.h */,
+				10C665C71977393C002C735C /* BlueToothViewController.m */,
+				10C665C919773965002C735C /* JellyBellyButtonViewController.h */,
+				10C665CA19773965002C735C /* JellyBellyButtonViewController.m */,
+				10C665CC19773973002C735C /* VolumeViewController.h */,
+				10C665CD19773973002C735C /* VolumeViewController.m */,
 				104332571975AEE300F81FFB /* ViewController.h */,
 				104332581975AEE300F81FFB /* ViewController.m */,
 				1043325A1975AEE300F81FFB /* Images.xcassets */,
@@ -296,8 +316,12 @@
 				10C665BF1976CF5D002C735C /* DBMScan.m in Sources */,
 				104332591975AEE300F81FFB /* ViewController.m in Sources */,
 				104332501975AEE300F81FFB /* AppDelegate.m in Sources */,
+				10C665CB19773965002C735C /* JellyBellyButtonViewController.m in Sources */,
+				10C665CE19773973002C735C /* VolumeViewController.m in Sources */,
 				10C665C51976FB79002C735C /* DBMHeader.m in Sources */,
+				10C665C81977393C002C735C /* BlueToothViewController.m in Sources */,
 				1043324C1975AEE300F81FFB /* main.m in Sources */,
+				10C665D1197DC0A5002C735C /* HeaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
