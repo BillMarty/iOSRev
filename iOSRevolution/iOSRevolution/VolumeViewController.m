@@ -31,14 +31,46 @@
     [super viewDidLoad];
     
     DBMMediator *mediator = [[DBMMediator alloc] init];
-    [mediator putItAllTogether];
-    [mediator.scan calculateLength];
-    [mediator.scan logScanInfo];
-    [mediator.scan headerMake];
-    self.volume3DVVC = mediator.scan.header.volume3D;
     
-    NSString *testText = [NSString stringWithFormat:@"%huml", _volume3DVVC];
-    self.volumeNumDisplay.text = testText;
+    [mediator grabWholeScan];
+    
+    DBMHeader *header = [[DBMHeader alloc] init];
+    
+    [header generateVarVals:mediator.wholeScan];
+    [header logHeader];
+    
+    NSString *volumeDisplay = [NSString stringWithFormat:@"%uml", header.volume3D];
+    _volumeNumDisplay.text = volumeDisplay;
+    
+    unsigned char *charbuffer;
+    int cols = header.bmodeScanlines;
+    int sls = header.cmodeSlices;
+    
+    NSRange range;
+    range.location = 32;
+    range.length = header.amodeBytes;
+    
+    NSMutableArray *slices = [[NSMutableArray alloc] init];
+    
+    for (int j = 0; j < sls; j++) {
+        NSMutableArray *frame = [[NSMutableArray alloc] init];
+        for (int i = 0; i < cols; i++) {
+            charbuffer = nil;
+            charbuffer = malloc(2000);
+        
+            NSMutableData *row = [[NSMutableData alloc] init];
+            [mediator.wholeScan getBytes:charbuffer range:range];
+            [row appendBytes:charbuffer length:header.amodeBytes];
+        
+            [frame addObject:row];
+        
+            range.location += header.amodeBytes;
+        }
+        [slices addObject:frame];
+    }
+    
+    NSLog(@"%@\n%@", slices[2][0], slices[7][119]);
+    
     
 }
 

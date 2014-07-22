@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9616A4CB-E9BA-4301-99FF-8314F0F2555C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOSRevolution</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4573EAE2-D6BD-4609-ACD4-42A7B88C0624</key>
+		<string>ssh://github.com/BillMarty/iOSRev.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOSRevolution/iOSRevolution.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4573EAE2-D6BD-4609-ACD4-42A7B88C0624</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/BillMarty/iOSRev.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4573EAE2-D6BD-4609-ACD4-42A7B88C0624</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4573EAE2-D6BD-4609-ACD4-42A7B88C0624</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Revolution</string>
+		</dict>
+	</array>
+</dict>
+</plist>
