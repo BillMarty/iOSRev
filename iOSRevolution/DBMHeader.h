@@ -33,14 +33,14 @@
 @property (nonatomic) unsigned short rsrvd2;
 @property (nonatomic) unsigned int n;
 
-- (void)firstFour:(NSMutableData *)x;
-- (void)dimensionsFour:(NSMutableData *)x;
-- (void)resolutionFive:(NSMutableData *)x;
-- (void)schemeAndWallsTwo:(NSMutableData *)x;
-- (void)volumeOne:(NSMutableData *)x;
-- (void)rsrvd2:(NSMutableData *)x;
-- (void)n:(NSMutableData *)x;
-- (void)generateVarVals:(NSMutableData *)x;
+- (NSUInteger)firstFour:(NSMutableData *)ws;
+- (NSUInteger)dimensionsFour:(NSMutableData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)resolutionFive:(NSMutableData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)schemeAndWallsTwo:(NSMutableData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)volumeOne:(NSMutableData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)rsrvd2:(NSMutableData *)ws nextloc:(NSUInteger)location;
+- (void)n:(NSMutableData *)ws nextloc:(NSUInteger)location;
+- (void)generateVarVals:(NSMutableData *)ws;
 - (void)logHeader;
 
 @end
