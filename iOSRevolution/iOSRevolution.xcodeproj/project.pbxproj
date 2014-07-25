@@ -28,6 +28,7 @@
 		1043327E1975C9C400F81FFB /* dBMEDxBluetoothScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1043327D1975C9C400F81FFB /* dBMEDxBluetoothScreen.png */; };
 		104332801975C9F000F81FFB /* photo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 1043327F1975C9F000F81FFB /* photo.PNG */; };
 		104332821975D33500F81FFB /* 20140521Firstvolume.bin in Resources */ = {isa = PBXBuildFile; fileRef = 104332811975D33500F81FFB /* 20140521Firstvolume.bin */; };
+		107DFFF21982E8C00013F672 /* DBMScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 107DFFF11982E8C00013F672 /* DBMScan.m */; };
 		10983B751980503A001750BD /* DBMSlice.m in Sources */ = {isa = PBXBuildFile; fileRef = 10983B741980503A001750BD /* DBMSlice.m */; };
 		10983B7B19808786001750BD /* HeaderDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10983B7A19808786001750BD /* HeaderDisplayViewController.m */; };
 		10C665C21976E79C002C735C /* DBMMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C11976E79C002C735C /* DBMMediator.m */; };
@@ -74,6 +75,8 @@
 		1043327D1975C9C400F81FFB /* dBMEDxBluetoothScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dBMEDxBluetoothScreen.png; sourceTree = "<group>"; };
 		1043327F1975C9F000F81FFB /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
 		104332811975D33500F81FFB /* 20140521Firstvolume.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = 20140521Firstvolume.bin; sourceTree = "<group>"; };
+		107DFFF01982E8C00013F672 /* DBMScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMScan.h; sourceTree = "<group>"; };
+		107DFFF11982E8C00013F672 /* DBMScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMScan.m; sourceTree = "<group>"; };
 		10983B731980503A001750BD /* DBMSlice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMSlice.h; sourceTree = "<group>"; };
 		10983B741980503A001750BD /* DBMSlice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMSlice.m; sourceTree = "<group>"; };
 		10983B7919808786001750BD /* HeaderDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderDisplayViewController.h; path = ../HeaderDisplayViewController.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 			children = (
 				10C665C01976E79C002C735C /* DBMMediator.h */,
 				10C665C11976E79C002C735C /* DBMMediator.m */,
+				107DFFF01982E8C00013F672 /* DBMScan.h */,
+				107DFFF11982E8C00013F672 /* DBMScan.m */,
 				10C665C31976FB79002C735C /* DBMHeader.h */,
 				10C665C41976FB79002C735C /* DBMHeader.m */,
 				10983B731980503A001750BD /* DBMSlice.h */,
@@ -326,6 +331,7 @@
 				104332501975AEE300F81FFB /* AppDelegate.m in Sources */,
 				10C665CB19773965002C735C /* JellyBellyButtonViewController.m in Sources */,
 				10C665CE19773973002C735C /* VolumeViewController.m in Sources */,
+				107DFFF21982E8C00013F672 /* DBMScan.m in Sources */,
 				10C665C51976FB79002C735C /* DBMHeader.m in Sources */,
 				10C665C81977393C002C735C /* BlueToothViewController.m in Sources */,
 				1043324C1975AEE300F81FFB /* main.m in Sources */,

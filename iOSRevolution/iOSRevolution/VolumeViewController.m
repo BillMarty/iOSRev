@@ -32,9 +32,9 @@
     
     // Chunk of code to bring in data, parse to header variables
     
-    DBMMediator *mediator = [[DBMMediator alloc] init];
+    DBMMediator *mediator = [DBMMediator sharedMediator];
     
-    [mediator grabWholeScan];
+    DBMScan *scan = [mediator scan];
     
     DBMHeader *header = [[DBMHeader alloc] init];
     

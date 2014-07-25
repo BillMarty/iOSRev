@@ -7,6 +7,7 @@
 //
 
 #import "DBMHeader.h"
+#import "DBMScan.h"
 
 @implementation DBMHeader
 
@@ -98,8 +99,14 @@
 
 
 // Method to essentially combine my previous 7 into one easy to use method
++ (DBMHeader *)headerFromScan:(DBMScan *)scan
+{
+    DBMHeader *result = [[DBMHeader alloc] init];
+    [result generateVarVals:scan.rawData];
+    return result;
+}
 
-- (void)generateVarVals:(NSMutableData *)ws {
+- (void)generateVarVals:(NSData *)ws {
     NSUInteger nextLocation = [self firstFour:ws];
     nextLocation = [self dimensionsFour:ws nextloc:nextLocation];
     nextLocation = [self resolutionFive:ws nextloc:nextLocation];

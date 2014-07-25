@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class DBMScan;
 
 @interface DBMMediator : NSObject
 
-@property (nonatomic, strong) NSMutableData *wholeScan;
-
-- (void)grabWholeScan;
+- (DBMScan *)scan;
 + (DBMMediator *)sharedMediator;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class DBMScan;
 
 @interface DBMHeader : NSObject
 {
@@ -14,6 +15,8 @@
     unsigned short *shortbuffer;
     unsigned int *intbuffer;
 }
++ (DBMHeader *)headerFromScan:(DBMScan *)scan;
+
 @property (nonatomic) uint8_t byte1;
 @property (nonatomic) unsigned char byte2;
 @property (nonatomic) unsigned char byte3;
