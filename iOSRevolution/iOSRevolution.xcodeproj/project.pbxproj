@@ -147,12 +147,7 @@
 		104332451975AEE300F81FFB /* iOSRevolution */ = {
 			isa = PBXGroup;
 			children = (
-				10C665C31976FB79002C735C /* DBMHeader.h */,
-				10C665C41976FB79002C735C /* DBMHeader.m */,
-				10C665C01976E79C002C735C /* DBMMediator.h */,
-				10C665C11976E79C002C735C /* DBMMediator.m */,
-				10983B731980503A001750BD /* DBMSlice.h */,
-				10983B741980503A001750BD /* DBMSlice.m */,
+				107DFFEF1982E4330013F672 /* Model */,
 				1043324E1975AEE300F81FFB /* AppDelegate.h */,
 				1043324F1975AEE300F81FFB /* AppDelegate.m */,
 				104332511975AEE300F81FFB /* Main_iPhone.storyboard */,
@@ -206,6 +201,19 @@
 				1043326A1975AEE300F81FFB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		107DFFEF1982E4330013F672 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10C665C01976E79C002C735C /* DBMMediator.h */,
+				10C665C11976E79C002C735C /* DBMMediator.m */,
+				10C665C31976FB79002C735C /* DBMHeader.h */,
+				10C665C41976FB79002C735C /* DBMHeader.m */,
+				10983B731980503A001750BD /* DBMSlice.h */,
+				10983B741980503A001750BD /* DBMSlice.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

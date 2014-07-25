@@ -41,5 +41,14 @@
             self.wholeScan, self.wholeScan.length];
 }
 
++ (DBMMediator *)sharedMediator
+{
+    static DBMMediator *result;
+    if (!result) {
+        result = [[DBMMediator alloc] init];
+    }
+    return result;
+}
+
 
 @end

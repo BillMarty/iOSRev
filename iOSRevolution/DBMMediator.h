@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSMutableData *wholeScan;
 
 - (void)grabWholeScan;
-
++ (DBMMediator *)sharedMediator;
 
 @end
