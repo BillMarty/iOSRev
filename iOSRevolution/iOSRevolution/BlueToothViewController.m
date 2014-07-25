@@ -27,8 +27,12 @@
 {
     [super viewDidLoad];
     
+    
     // Removing the navigation bar to give my graphics more space
+    
     self.navigationController.navigationBar.hidden = YES;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

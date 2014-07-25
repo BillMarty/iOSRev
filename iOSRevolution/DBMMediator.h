@@ -10,11 +10,9 @@
 
 @interface DBMMediator : NSObject
 
-@property (nonatomic) NSMutableData *wholeScan;
-@property (nonatomic) unsigned long wholeScanLength;
+@property (nonatomic, strong) NSMutableData *wholeScan;
 
 - (void)grabWholeScan;
-- (void)logWholeScan;
 
 
 @end

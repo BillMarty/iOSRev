@@ -29,6 +29,9 @@
 {
     [super viewDidLoad];
     
+    
+    // Chunk of code to bring in data, parse to header variables
+    
     DBMMediator *mediator = [[DBMMediator alloc] init];
     
     [mediator grabWholeScan];
@@ -37,9 +40,18 @@
     
     [header generateVarVals:mediator.wholeScan];
     // [header logHeader];
+    DBLog(@"%@", header);
+    
+    
+    
+    // Displaying the volume reading to the screen
     
     NSString *volumeDisplay = [NSString stringWithFormat:@"%uml", header.volume3D];
-    _volumeNumDisplay.text = volumeDisplay;
+    self.volumeNumDisplay.text = volumeDisplay;
+    
+    
+    
+    // Earlier attempt at filling a 3D array of NSMutableArrays... Did not work...
     
     /* unsigned char *charbuffer;
     int points = header.amodeBytes;
@@ -70,6 +82,8 @@
     
     
     
+    // Working way to fill a 2D array with the data needed, and used a pointer.
+    // Just need to add this to an object, problem comes when I can't declare array size at build time
     
     int samples = (header.amodeBytes / 2);  // converting bytes to samples
     

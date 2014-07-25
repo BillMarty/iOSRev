@@ -14,7 +14,7 @@
     unsigned short *shortbuffer;
     unsigned int *intbuffer;
 }
-@property (nonatomic) unsigned char byte1;
+@property (nonatomic) uint8_t byte1;
 @property (nonatomic) unsigned char byte2;
 @property (nonatomic) unsigned char byte3;
 @property (nonatomic) unsigned char byte4;
@@ -30,7 +30,7 @@
 @property (nonatomic) unsigned char codingScheme;
 @property (nonatomic) unsigned char includedWalls;
 @property (nonatomic) unsigned short volume3D;
-@property (nonatomic) unsigned short rsrvd2;
+@property (nonatomic) uint16_t rsrvd2;
 @property (nonatomic) unsigned int n;
 
 - (NSUInteger)firstFour:(NSMutableData *)ws;

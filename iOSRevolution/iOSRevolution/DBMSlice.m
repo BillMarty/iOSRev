@@ -10,6 +10,9 @@
 
 @implementation DBMSlice
 
+
+// Attempting to make an alternative init method that filled the important non-array instance variables
+
 - (instancetype)initWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls {
     
     self = [super init];
@@ -24,6 +27,9 @@
     
 }
 
+
+// Alternative to the above init method, just simple variable filling
+
 - (void)populateVariablesWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls {
     
     self.lines = lines;
@@ -31,6 +37,9 @@
     self.walls = walls;
     
 }
+
+
+// My attempt at filling a 2D NSMutableArray with NSNumber objects for each sample
 
 - (unsigned short *)populateLinesArray:(unsigned short *)shortPtr {
     
@@ -54,6 +63,9 @@
     return shortPtr;
     
 }
+
+
+// Currently a random sample, printed at every line just to text if there is data in the arrays
 
 - (void)logTest {
     for (int n = 0; n < self.lines; n++) {

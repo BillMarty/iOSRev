@@ -96,6 +96,9 @@
     _n = intbuffer[0];
 }
 
+
+// Method to essentially combine my previous 7 into one easy to use method
+
 - (void)generateVarVals:(NSMutableData *)ws {
     NSUInteger nextLocation = [self firstFour:ws];
     nextLocation = [self dimensionsFour:ws nextloc:nextLocation];
@@ -105,6 +108,9 @@
     nextLocation = [self rsrvd2:ws nextloc:nextLocation];
     [self n:ws nextloc:nextLocation];
 }
+
+
+// Log the header data in a user friendly way
 
 - (void)logHeader {
     NSLog(@" %c%c%c%c", _byte1, _byte2, _byte3, _byte4);

@@ -30,6 +30,10 @@
 {
     [super viewDidLoad];
     
+    
+    // Chunk of code that brings in the data from the file and creates a header with correct values
+    // I shouldn't need this here once I figure out how to "pass an object to the next view"
+    
     DBMMediator *mediator = [[DBMMediator alloc] init];
     
     [mediator grabWholeScan];
@@ -38,6 +42,10 @@
     
     [header generateVarVals:mediator.wholeScan];
     // [header logHeader];
+    
+    
+    
+    // Attempt at using my new DBMSlice object.  Works up until filling the array
     
     unsigned short *shortPtr = [mediator.wholeScan mutableBytes];
     shortPtr += 16;
@@ -88,6 +96,8 @@
     
     NSString *headerTotalBytes = [NSString stringWithFormat:@"Total Scan: %u bytes", header.n];
     _headerTotalBytes.text = headerTotalBytes;
+    
+    
     
 }
 
