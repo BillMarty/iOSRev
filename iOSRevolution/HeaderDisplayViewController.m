@@ -58,27 +58,27 @@
     
     // Populating all of the label items on this page ...
 
-    NSString *headerDataType = [NSString stringWithFormat:@"Data Type: %c%c%c%c", header.byte1, header.byte2, header.byte3, header.byte4];
+    NSString *headerDataType = [NSString stringWithFormat:@"Data Type:  %c%c%c%c", header.byte1, header.byte2, header.byte3, header.byte4];
     _headerDataType.text = headerDataType;
     
-    NSString *headerVolume = [NSString stringWithFormat:@"Volume: %u", header.volume3D];
+    NSString *headerVolume = [NSString stringWithFormat:@"Volume:  %uml", header.volume3D];
     _headerVolume.text = headerVolume;
     
-    NSString *headerPoints = [NSString stringWithFormat:@"Points: %u", (header.amodeBytes / 2)];
+    NSString *headerPoints = [NSString stringWithFormat:@"Points:  %u", (header.amodeBytes / 2)];
     _headerPoints.text = headerPoints;
     
-    NSString *headerLines = [NSString stringWithFormat:@"Lines: %u", header.bmodeScanlines];
+    NSString *headerLines = [NSString stringWithFormat:@"Lines:  %u", header.bmodeScanlines];
     _headerLines.text = headerLines;
     
-    NSString *headerSlices = [NSString stringWithFormat:@"Slices: %u", header.cmodeSlices];
+    NSString *headerSlices = [NSString stringWithFormat:@"Slices:  %u", header.cmodeSlices];
     _headerSlices.text = headerSlices;
     
     if (header.includedWalls == 1) {
-        NSString *headerWalls = [NSString stringWithFormat:@"Walls Included: YES"];
+        NSString *headerWalls = [NSString stringWithFormat:@"Walls Included:  YES"];
         _headerWalls.text = headerWalls;
     }
     else if (header.includedWalls == 0) {
-        NSString *headerWalls = [NSString stringWithFormat:@"Walls Included: NO"];
+        NSString *headerWalls = [NSString stringWithFormat:@"Walls Included:  NO"];
         _headerWalls.text = headerWalls;
     }
     else {
@@ -86,7 +86,7 @@
         _headerWalls.text = headerWalls;
     }
     
-    NSString *headerTotalBytes = [NSString stringWithFormat:@"Total Scan: %u bytes", header.n];
+    NSString *headerTotalBytes = [NSString stringWithFormat:@"Total Scan:  %u bytes", header.n];
     _headerTotalBytes.text = headerTotalBytes;
     
 }
