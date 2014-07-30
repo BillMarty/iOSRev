@@ -10,7 +10,6 @@
 
 @interface HeaderDisplayViewController : UIViewController
 
-
 @property (weak, nonatomic) IBOutlet UILabel *headerDataType;
 @property (weak, nonatomic) IBOutlet UILabel *headerVolume;
 @property (weak, nonatomic) IBOutlet UILabel *headerPoints;

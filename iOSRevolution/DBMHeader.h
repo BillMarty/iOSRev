@@ -36,14 +36,14 @@
 @property (nonatomic) uint16_t rsrvd2;
 @property (nonatomic) unsigned int n;
 
-- (NSUInteger)firstFour:(NSMutableData *)ws;
-- (NSUInteger)dimensionsFour:(NSMutableData *)ws nextloc:(NSUInteger)location;
-- (NSUInteger)resolutionFive:(NSMutableData *)ws nextloc:(NSUInteger)location;
-- (NSUInteger)schemeAndWallsTwo:(NSMutableData *)ws nextloc:(NSUInteger)location;
-- (NSUInteger)volumeOne:(NSMutableData *)ws nextloc:(NSUInteger)location;
-- (NSUInteger)rsrvd2:(NSMutableData *)ws nextloc:(NSUInteger)location;
-- (void)n:(NSMutableData *)ws nextloc:(NSUInteger)location;
-- (void)generateVarVals:(NSMutableData *)ws;
+- (NSUInteger)firstFour:(NSData *)ws;
+- (NSUInteger)dimensionsFour:(NSData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)resolutionFive:(NSData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)schemeAndWallsTwo:(NSData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)volumeOne:(NSData *)ws nextloc:(NSUInteger)location;
+- (NSUInteger)rsrvd2:(NSData *)ws nextloc:(NSUInteger)location;
+- (void)n:(NSData *)ws nextloc:(NSUInteger)location;
+- (void)generateVarVals:(NSData *)ws;
 - (void)logHeader;
 
 @end

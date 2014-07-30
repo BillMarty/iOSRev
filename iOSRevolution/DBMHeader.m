@@ -11,7 +11,7 @@
 
 @implementation DBMHeader
 
-- (NSUInteger)firstFour:(NSMutableData *)ws {
+- (NSUInteger)firstFour:(NSData *)ws {
     charbuffer = malloc(4);
     NSRange range;
     range.location = 0;
@@ -25,7 +25,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)dimensionsFour:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)dimensionsFour:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(8);
     NSRange range;
     range.location = location;
@@ -39,7 +39,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)resolutionFive:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)resolutionFive:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(10);
     NSRange range;
     range.location = 12;
@@ -54,7 +54,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)schemeAndWallsTwo:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)schemeAndWallsTwo:(NSData *)ws nextloc:(NSUInteger)location {
     charbuffer = malloc(2);
     NSRange range;
     range.location = 22;
@@ -66,7 +66,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)volumeOne:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)volumeOne:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(2);
     NSRange range;
     range.location = 24;
@@ -77,7 +77,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)rsrvd2:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)rsrvd2:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(2);
     NSRange range;
     range.location = 26;
@@ -88,7 +88,7 @@
     return range.location + range.length;
 }
 
-- (void)n:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (void)n:(NSData *)ws nextloc:(NSUInteger)location {
     intbuffer = malloc(4);
     NSRange range;
     range.location = 28;

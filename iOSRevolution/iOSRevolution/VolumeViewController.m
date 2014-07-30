@@ -7,6 +7,7 @@
 //
 
 #import "VolumeViewController.h"
+#import "HeaderDisplayViewController.h"
 #import "DBMHeader.h"
 #import "DBMMediator.h"
 
@@ -25,6 +26,15 @@
     return self;
 }
 
+- (void) prepareForSegue : (UIStoryboardSegue *) segue sender : (id) sender {
+    if ([segue.identifier isEqualToString : @"HeaderSegue"]) {
+        HeaderDisplayViewController *nextController = (HeaderDisplayViewController *)[segue destinationViewController];
+        
+        nextController = segue.destinationViewController;
+        nextController.class = mediator;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,10 +46,8 @@
     
     DBMScan *scan = [mediator scan];
     
-    DBMHeader *header = [[DBMHeader alloc] init];
+    DBMHeader *header = [DBMHeader headerFromScan:scan];
     
-    [header generateVarVals:mediator.wholeScan];
-    // [header logHeader];
     DBLog(@"%@", header);
     
     

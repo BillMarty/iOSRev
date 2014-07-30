@@ -10,6 +10,7 @@
 #import "DBMMEdiator.h"
 #import "DBMHeader.h"
 #import "DBMSlice.h"
+#import "DBMScan.h"
 
 @interface HeaderDisplayViewController ()
 
@@ -34,20 +35,20 @@
     // Chunk of code that brings in the data from the file and creates a header with correct values
     // I shouldn't need this here once I figure out how to "pass an object to the next view"
     
-    DBMMediator *mediator = [[DBMMediator alloc] init];
+    /* DBMMediator *mediator = [[DBMMediator alloc] init];
     
     [mediator grabWholeScan];
     
     DBMHeader *header = [[DBMHeader alloc] init];
     
     [header generateVarVals:mediator.wholeScan];
-    // [header logHeader];
+    // [header logHeader]; */
     
     
     
     // Attempt at using my new DBMSlice object.  Works up until filling the array
     
-    unsigned short *shortPtr = [mediator.wholeScan mutableBytes];
+    unsigned short *shortPtr = [scan.rawData mutableBytes];
     shortPtr += 16;
     
     DBMSlice *testSlice = [[DBMSlice alloc] init];
@@ -66,6 +67,7 @@
     
     // Populating all of the label items on this page ...
 
+    /* 
     NSString *headerDataType = [NSString stringWithFormat:@"Data Type: %c%c%c%c", header.byte1, header.byte2, header.byte3, header.byte4];
     _headerDataType.text = headerDataType;
     
@@ -96,7 +98,7 @@
     
     NSString *headerTotalBytes = [NSString stringWithFormat:@"Total Scan: %u bytes", header.n];
     _headerTotalBytes.text = headerTotalBytes;
-    
+    */
     
     
 }
