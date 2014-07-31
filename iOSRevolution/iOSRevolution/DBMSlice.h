@@ -10,6 +10,9 @@
 
 
 @interface DBMSlice : NSObject
+{
+    uint16_t linesPointsArray[120][602];
+}
 
 @property (nonatomic) unsigned short lines;
 @property (nonatomic) unsigned short points;
@@ -20,8 +23,6 @@
 
 - (instancetype)initWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls;
 - (void)populateVariablesWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls;
-- (unsigned short *)populateLinesArray:(unsigned short *)shortPtr;
-
-- (void)logTest;
+- (
 
 @end

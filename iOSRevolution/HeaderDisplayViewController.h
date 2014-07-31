@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DBMMediator;
 
 @interface HeaderDisplayViewController : UIViewController
 
@@ -17,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *headerSlices;
 @property (weak, nonatomic) IBOutlet UILabel *headerWalls;
 @property (weak, nonatomic) IBOutlet UILabel *headerTotalBytes;
-@property (nonatomic) UITableView *taskTable;
-@property (nonatomic) NSMutableArray *data;
+@property (nonatomic) DBMMediator *mediator;
 
 @end

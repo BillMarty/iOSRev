@@ -25,15 +25,15 @@
     }
     return self;
 }
-
+/*
 - (void) prepareForSegue : (UIStoryboardSegue *) segue sender : (id) sender {
     if ([segue.identifier isEqualToString : @"HeaderSegue"]) {
-        HeaderDisplayViewController *nextController = (HeaderDisplayViewController *)[segue destinationViewController];
+        HeaderDisplayViewController *nextController = [segue destinationViewController];
         
-        nextController = segue.destinationViewController;
-        nextController.class = mediator;
+        nextController.mediator =
     }
 }
+*/
 
 - (void)viewDidLoad
 {
@@ -93,7 +93,7 @@
     // Working way to fill a 2D array with the data needed, and used a pointer.
     // Just need to add this to an object, problem comes when I can't declare array size at build time
     
-    int samples = (header.amodeBytes / 2);  // converting bytes to samples
+    /* int samples = (header.amodeBytes / 2);  // converting bytes to samples
     
     unsigned short *shortPtr = [mediator.wholeScan mutableBytes];
     shortPtr += 16;  // Increment past the header to point at 17th u short
@@ -110,7 +110,7 @@
     for (int n = 0; n < 120; n++) {
         NSLog(@"%x", array[n][601]);
     }
-    
+    */
     
     
     
