@@ -155,16 +155,7 @@
 				1043324F1975AEE300F81FFB /* AppDelegate.m */,
 				104332511975AEE300F81FFB /* Main_iPhone.storyboard */,
 				104332541975AEE300F81FFB /* Main_iPad.storyboard */,
-				10983B7919808786001750BD /* HeaderDisplayViewController.h */,
-				10983B7A19808786001750BD /* HeaderDisplayViewController.m */,
-				10C665CC19773973002C735C /* VolumeViewController.h */,
-				10C665CD19773973002C735C /* VolumeViewController.m */,
-				10C665C919773965002C735C /* JellyBellyButtonViewController.h */,
-				10C665CA19773965002C735C /* JellyBellyButtonViewController.m */,
-				10C665C61977393C002C735C /* BlueToothViewController.h */,
-				10C665C71977393C002C735C /* BlueToothViewController.m */,
-				104332571975AEE300F81FFB /* ViewController.h */,
-				104332581975AEE300F81FFB /* ViewController.m */,
+				10909723198BF3A1000251A3 /* View Controllers */,
 				1043325A1975AEE300F81FFB /* Images.xcassets */,
 				104332461975AEE300F81FFB /* Supporting Files */,
 			);
@@ -219,6 +210,23 @@
 				10983B741980503A001750BD /* DBMSlice.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		10909723198BF3A1000251A3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10983B7919808786001750BD /* HeaderDisplayViewController.h */,
+				10983B7A19808786001750BD /* HeaderDisplayViewController.m */,
+				10C665CC19773973002C735C /* VolumeViewController.h */,
+				10C665CD19773973002C735C /* VolumeViewController.m */,
+				10C665C919773965002C735C /* JellyBellyButtonViewController.h */,
+				10C665CA19773965002C735C /* JellyBellyButtonViewController.m */,
+				10C665C61977393C002C735C /* BlueToothViewController.h */,
+				10C665C71977393C002C735C /* BlueToothViewController.m */,
+				104332571975AEE300F81FFB /* ViewController.h */,
+				104332581975AEE300F81FFB /* ViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
