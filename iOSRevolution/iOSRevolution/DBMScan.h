@@ -10,12 +10,16 @@
 @class DBMHeader;
 @class DBMSlice;
 
+#define HEADER_BYTES    32
+
 @interface DBMScan : NSObject
 
 @property (nonatomic, strong, readonly) DBMHeader *header;
 @property (nonatomic, copy, readonly) NSData *rawData;
-@property (nonatomic, strong, readonly) NSArray *slices;
+@property (nonatomic, strong, readonly) NSMutableArray *slices;
 
 + (DBMScan *)scanWithData:(NSData *)data;
+- (void)fill8Slices;
+- (void)slicesLogTest;
 
 @end

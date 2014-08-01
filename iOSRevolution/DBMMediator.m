@@ -25,7 +25,7 @@
     NSLog(@"Starting grabWholeScan");
     
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"20140521Firstvolume.bin" ofType:nil];
-    NSMutableData *scanData = [NSMutableData dataWithContentsOfFile:filepath];
+    NSData *scanData = [NSData dataWithContentsOfFile:filepath];
 
     if (!scanData) {
         NSLog(@"DID NOT IMPORT DATA CORRECTLY");

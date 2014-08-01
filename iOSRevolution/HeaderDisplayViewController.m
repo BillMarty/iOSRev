@@ -48,20 +48,11 @@
     
     // Attempt at using my new DBMSlice object.  Works up until filling the array
     
-    unsigned short *shortPtr = [scan.rawData mutableBytes];
-    shortPtr += 16;
     
-    DBMSlice *testSlice = [[DBMSlice alloc] init];
-    [testSlice populateVariablesWithLines:header.bmodeScanlines Points:header.amodeBytes Walls:header.includedWalls];
-    [testSlice populateLinesArray:shortPtr];
-    
-    NSLog(@"%hu , %hu , %hu", testSlice.lines, testSlice.points, testSlice.walls);
     
     /* for (int n = 0; n < header.bmodeScanlines; n++) {
         NSLog(@"%@", testSlice.linesArray[n][300]);
     } */
-    
-    [testSlice logTest];
     
     
     

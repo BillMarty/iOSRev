@@ -8,11 +8,12 @@
 
 #import "DBMScan.h"
 #import "DBMHeader.h"
+#import "DBMSlice.h"
 
 @interface DBMScan ()
 @property (nonatomic, strong) DBMHeader *header;
 @property (nonatomic, copy) NSData *rawData;
-@property (nonatomic, strong) NSArray *slices;
+@property (nonatomic, strong) NSMutableArray *slices;
 @end
 
 
@@ -35,9 +36,36 @@
     return _header;
 }
 
-- (NSArray *)slices
+/*- (NSArray *)slices
 {
     // _slices = [DBSlice slicesForScan:self]
     return _slices;
+} */
+
+- (void)fill8Slices
+{
+    //DBLog(@"%@", self.rawData);
+    DBLog(@"%p", self.rawData);
+    const unsigned short *shortPtr = [self.rawData bytes];
+    shortPtr += (HEADER_BYTES / 2);
+    
+    for (int i = 0; i < 8; i++) {
+        DBMSlice *slice = [[DBMSlice alloc] init];
+        shortPtr = [slice fillArray:shortPtr];
+        [self.slices addObject:slice];
+        DBLog(@"Created slice #%u. \n %@", i, slice);
+        DBLog(@"Fred: %p", self.slices);
+    }
+    
 }
+
+- (void)slicesLogTest
+{
+    for (int s = 0; s < 8; s++) {
+        for (int l = 0; l < 120; l++) {
+            DBLog(@"Slice #%u: %@", s, self.slices[l]);
+        }
+    }
+}
+
 @end

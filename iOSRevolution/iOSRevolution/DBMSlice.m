@@ -38,4 +38,23 @@
     
 }
 
+// Filling the array with the short pointer method
+
+- (unsigned short *)fillArray:(const unsigned short *)shortPtr {
+    for (int i = 0; i < LINES_ARRAY_SIZE; i++) {
+        for (int j = 0; j < POINTS_ARRAY_SIZE; j++) {
+            linesPointsArray[i][j] = *shortPtr++;
+        }
+    }
+    return shortPtr;
+}
+
+- (void)logTest
+{
+    for (int i = 0; i < 120; i++) {
+        NSLog(@"%hu", linesPointsArray[i][601]);
+    }
+}
+
+
 @end

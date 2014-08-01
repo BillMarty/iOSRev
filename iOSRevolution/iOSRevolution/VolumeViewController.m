@@ -10,6 +10,7 @@
 #import "HeaderDisplayViewController.h"
 #import "DBMHeader.h"
 #import "DBMMediator.h"
+#import "DBMScan.h"
 
 @interface VolumeViewController ()
 
@@ -50,6 +51,8 @@
     
     DBLog(@"%@", header);
     
+    [scan fill8Slices];
+    // [scan slicesLogTest];
     
     
     // Displaying the volume reading to the screen
@@ -78,7 +81,7 @@
             charbuffer = nil;
             charbuffer = malloc(points);
         
-            NSMutableData *row = [[NSMutableData alloc] init];
+            NSData *row = [[NSData alloc] init];
             [mediator.wholeScan getBytes:charbuffer range:range];
             [row appendBytes:charbuffer length:points];
             
