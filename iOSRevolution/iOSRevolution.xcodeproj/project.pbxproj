@@ -31,6 +31,7 @@
 		107DFFF21982E8C00013F672 /* DBMScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 107DFFF11982E8C00013F672 /* DBMScan.m */; };
 		10983B751980503A001750BD /* DBMSlice.m in Sources */ = {isa = PBXBuildFile; fileRef = 10983B741980503A001750BD /* DBMSlice.m */; };
 		10983B7B19808786001750BD /* HeaderDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10983B7A19808786001750BD /* HeaderDisplayViewController.m */; };
+		109F510B198C0A32003E447B /* DBMSliceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 109F510A198C0A32003E447B /* DBMSliceTest.m */; };
 		10C665C21976E79C002C735C /* DBMMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C11976E79C002C735C /* DBMMediator.m */; };
 		10C665C51976FB79002C735C /* DBMHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C41976FB79002C735C /* DBMHeader.m */; };
 		10C665C81977393C002C735C /* BlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C665C71977393C002C735C /* BlueToothViewController.m */; };
@@ -81,6 +82,7 @@
 		10983B741980503A001750BD /* DBMSlice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMSlice.m; sourceTree = "<group>"; };
 		10983B7919808786001750BD /* HeaderDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderDisplayViewController.h; path = ../HeaderDisplayViewController.h; sourceTree = "<group>"; };
 		10983B7A19808786001750BD /* HeaderDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderDisplayViewController.m; path = ../HeaderDisplayViewController.m; sourceTree = "<group>"; };
+		109F510A198C0A32003E447B /* DBMSliceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMSliceTest.m; sourceTree = "<group>"; };
 		10C665C01976E79C002C735C /* DBMMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMMediator.h; path = ../DBMMediator.h; sourceTree = "<group>"; };
 		10C665C11976E79C002C735C /* DBMMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBMMediator.m; path = ../DBMMediator.m; sourceTree = "<group>"; };
 		10C665C31976FB79002C735C /* DBMHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBMHeader.h; path = ../DBMHeader.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				1043326D1975AEE300F81FFB /* iOSRevolutionTests.m */,
+				109F510A198C0A32003E447B /* DBMSliceTest.m */,
 				104332681975AEE300F81FFB /* Supporting Files */,
 			);
 			path = iOSRevolutionTests;
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109F510B198C0A32003E447B /* DBMSliceTest.m in Sources */,
 				1043326E1975AEE300F81FFB /* iOSRevolutionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

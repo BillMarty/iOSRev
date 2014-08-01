@@ -44,26 +44,27 @@
 
 - (void)fill8Slices
 {
-    //DBLog(@"%@", self.rawData);
     DBLog(@"%p", self.rawData);
-    const unsigned short *shortPtr = [self.rawData bytes];
-    shortPtr += (HEADER_BYTES / 2);
+    const unsigned short *rawDataOffsetPtr = [self.rawData bytes];
+    rawDataOffsetPtr += (HEADER_BYTES / 2);
     
-    for (int i = 0; i < 8; i++) {
+    for (NSInteger sliceNumber = 0; sliceNumber < 8; sliceNumber++) {
         DBMSlice *slice = [[DBMSlice alloc] init];
-        shortPtr = [slice fillArray:shortPtr];
+        rawDataOffsetPtr = [slice fillArray:rawDataOffsetPtr];
         [self.slices addObject:slice];
-        DBLog(@"Created slice #%u. \n %@", i, slice);
-        DBLog(@"Fred: %p", self.slices);
+        DBLog(@"Created slice #%zu. \n %@", sliceNumber, slice);
+        DBLog(@"Memory Location: %p", self.slices);
     }
     
 }
 
 - (void)slicesLogTest
 {
-    for (int s = 0; s < 8; s++) {
-        for (int l = 0; l < 120; l++) {
-            DBLog(@"Slice #%u: %@", s, self.slices[l]);
+    for (NSInteger sliceNumber = 0; sliceNumber < 8; sliceNumber++) {
+        DBLog(@"Slice #%zu: %@", sliceNumber, self.slices[sliceNumber]);
+        for (NSInteger lineNumber = 0; lineNumber < 120; lineNumber++) {
+            DBMSlice *thisSlice = self.slices[sliceNumber];
+//            DBLog(@"lineNumber %zu: %zu", lineNumber, thisSlice[lineNumber]);
         }
     }
 }

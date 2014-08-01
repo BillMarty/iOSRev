@@ -14,19 +14,21 @@
 
 @interface DBMSlice : NSObject
 {
-    uint16_t linesPointsArray[LINES_ARRAY_SIZE][POINTS_ARRAY_SIZE];
+//    uint16_t linesPointsArray[LINES_ARRAY_SIZE][POINTS_ARRAY_SIZE];
 }
 
-@property (nonatomic) unsigned short lines;
-@property (nonatomic) unsigned short points;
-@property (nonatomic) unsigned short walls;
-@property (nonatomic) int sliceNum;
+@property (nonatomic, assign) uint16_t *linesPointsArray;
+@property (nonatomic, assign) uint16_t lines;
+@property (nonatomic, assign) uint16_t points;
+@property (nonatomic, assign) uint16_t walls;
+@property (nonatomic, assign) NSInteger sliceNum;
 
 @property (nonatomic, copy) NSMutableArray *linesArray;
 
-- (instancetype)initWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls;
-- (void)populateVariablesWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls;
-- (unsigned short *)fillArray:(const unsigned short *)shortPtr;
+- (instancetype)initWithLines:(uint16_t)lines points:(uint16_t)points walls:(uint16_t)walls;
+- (void)populateVariablesWithLines:(uint16_t)lines points:(uint16_t)points walls:(uint16_t)walls;
+- (const uint16_t *)fillArray:(const uint16_t *)shortPtr;
 - (void)logTest;
+- (void)fillSliceArrayWith:(uint16_t)fillValue;
 
 @end
