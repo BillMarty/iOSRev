@@ -10,55 +10,42 @@
 
 @implementation DBMSlice
 
-- (instancetype)initWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls {
+
+// an alternative init method that fills the important non-array instance variables and mallocs space for the data
+
+- (instancetype)initWithLines:(uint16_t)lines points:(uint16_t)points walls:(uint16_t)walls {
     
     self = [super init];
     
     if (self) {
-        self.lines = lines;
-        self.points = points;
-        self.walls = walls;
+        _lines = lines;
+        _points = points;
+        _walls = walls;
+        _linesPointsArray = malloc(2*lines*points*sizeof(uint16_t));
     }
     
     return self;
     
 }
 
-- (void)populateVariablesWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls {
-    
-    self.lines = lines;
-    self.points = points;
-    self.walls = walls;
-    
+- (void)dealloc
+{
+    free(_linesPointsArray);
 }
 
-- (unsigned short *)populateLinesArray:(unsigned short *)shortPtr {
+- (void)fillSliceNumber:(NSInteger)sliceNum fromData:(NSData*)wholeScan
+{
+    NSRange range;
+    // location and length are in bytes, and our samples are in 2 byte chunks, hence the *2s
+    range.location = (32 + 2*(self.lines * self.points) * sliceNum);
+    range.length = 2*(self.lines * self.points);
     
-    // NSMutableArray *_linesArray = [[NSMutableArray alloc] init];
-    
-    if (self.lines == 0 || self.points == 0) {
-        NSLog(@"ENCOUNTERED AN ERROR: attempting to populate the lines array but one or more variables are zero");
-        return shortPtr;
-    }
-    
-    for (int i = 0; i < self.lines; i++) {
-        NSMutableArray *pointsArray = [[NSMutableArray alloc] init];
-        [self.linesArray addObject:pointsArray];
-        for (int j = 0; j < self.points; j++) {
-            unsigned short tempNum = *shortPtr++;
-            NSNumber *num = [NSNumber numberWithUnsignedShort:tempNum];
-            [pointsArray addObject:num];
-        }
-    }
-    
-    return shortPtr;
-    
+    [wholeScan getBytes:self.linesPointsArray range:range];
 }
 
-- (void)logTest {
-    for (int n = 0; n < self.lines; n++) {
-        NSLog(@"%@", self.linesArray[n][300]);
-    }
+- (uint16_t)sampleForLine:(uint16_t)line point:(uint16_t)point
+{
+    return self.linesPointsArray[((self.points * line) + point)];
 }
 
 

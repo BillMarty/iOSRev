@@ -7,34 +7,26 @@
 //
 
 #import "DBMMediator.h"
+#import "DBMScan.h"
 
 @implementation DBMMediator
 
-// Creates an NSData object with all of the scan in it
-- (void)grabWholeScan {
-    NSLog(@"Starting grabWholeScan");
-    
+- (DBMScan *)scan
+{
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"20140521Firstvolume.bin" ofType:nil];
-    _wholeScan = [NSMutableData dataWithContentsOfFile:filepath];
-    
-    if (!_wholeScan) {
-        NSLog(@"DID NOT IMPORT DATA CORRECTLY");
-    }
-    else {
-        _wholeScanLength = _wholeScan.length;
-        NSLog(@"Imported a scanner data file of length %lu bytes", _wholeScanLength);
-    }
-    
-    NSLog(@"Finished grabWholeScan");
+    NSData *scanData = [NSData dataWithContentsOfFile:filepath];
+    return [DBMScan scanWithData:scanData];
 }
 
-// Logs whole scan to screen to check that it is there, also logs length in bytes at the end
-- (void)logWholeScan {
-    NSLog(@"Starting logWholeScan");
++ (DBMMediator *)sharedMediator
+{
+    static DBMMediator *result;
     
-    NSLog(@"%@ \n file size: %lu bytes", _wholeScan, _wholeScanLength);
-    
-    NSLog(@"Finished logWholeScan");
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        result = [[DBMMediator alloc] init];
+    });
+    return result;
 }
 
 

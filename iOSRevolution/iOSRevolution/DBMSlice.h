@@ -8,20 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+#define LINES_ARRAY_SIZE    120
+#define POINTS_ARRAY_SIZE   602
+
 
 @interface DBMSlice : NSObject
 
-@property (nonatomic) unsigned short lines;
-@property (nonatomic) unsigned short points;
-@property (nonatomic) unsigned short walls;
-@property (nonatomic) int sliceNum;
+@property (nonatomic, assign) uint16_t *linesPointsArray;
+@property (nonatomic, assign) uint16_t lines;
+@property (nonatomic, assign) uint16_t points;
+@property (nonatomic, assign) uint16_t walls;
+@property (nonatomic, assign) NSInteger sliceNum;
 
 @property (nonatomic, copy) NSMutableArray *linesArray;
 
-- (instancetype)initWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls;
-- (void)populateVariablesWithLines:(unsigned short)lines Points:(unsigned short)points Walls:(unsigned short)walls;
-- (unsigned short *)populateLinesArray:(unsigned short *)shortPtr;
-
-- (void)logTest;
+- (instancetype)initWithLines:(uint16_t)lines points:(uint16_t)points walls:(uint16_t)walls;
+- (void)fillSliceNumber:(NSInteger)sliceNum fromData:(NSData*)wholeScan;
+- (uint16_t)sampleForLine:(uint16_t)line point:(uint16_t)point;
 
 @end

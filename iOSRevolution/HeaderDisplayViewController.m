@@ -10,6 +10,7 @@
 #import "DBMMEdiator.h"
 #import "DBMHeader.h"
 #import "DBMSlice.h"
+#import "DBMScan.h"
 
 @interface HeaderDisplayViewController ()
 
@@ -30,30 +31,19 @@
 {
     [super viewDidLoad];
     
-    DBMMediator *mediator = [[DBMMediator alloc] init];
+    // Chunk of code to bring in data, parse to header variables
     
-    [mediator grabWholeScan];
+    DBMMediator *mediator = [DBMMediator sharedMediator];
     
-    DBMHeader *header = [[DBMHeader alloc] init];
+    DBMScan *scan = [mediator scan];
     
-    [header generateVarVals:mediator.wholeScan];
-    // [header logHeader];
+    DBMHeader *header = [DBMHeader headerFromScan:scan];
     
-    unsigned short *shortPtr = [mediator.wholeScan mutableBytes];
-    shortPtr += 16;
+    [scan createAndFill8Slices];
     
-    DBMSlice *testSlice = [[DBMSlice alloc] init];
-    [testSlice populateVariablesWithLines:header.bmodeScanlines Points:header.amodeBytes Walls:header.includedWalls];
-    [testSlice populateLinesArray:shortPtr];
-    
-    NSLog(@"%hu , %hu , %hu", testSlice.lines, testSlice.points, testSlice.walls);
-    
-    /* for (int n = 0; n < header.bmodeScanlines; n++) {
-        NSLog(@"%@", testSlice.linesArray[n][300]);
-    } */
-    
-    [testSlice logTest];
-    
+    for (NSInteger sliceCount = 0; sliceCount < 8; sliceCount++) {
+        DBLog(@"Delimiter for slice #%ld: %hu", (long)sliceCount, [scan.slices[sliceCount] sampleForLine:119 point:601]);
+    }
     
     
     // Populating all of the label items on this page ...
@@ -64,7 +54,7 @@
     NSString *headerVolume = [NSString stringWithFormat:@"Volume:  %uml", header.volume3D];
     _headerVolume.text = headerVolume;
     
-    NSString *headerPoints = [NSString stringWithFormat:@"Points:  %u", (header.amodeBytes / 2)];
+    NSString *headerPoints = [NSString stringWithFormat:@"Points:  %u", (header.amodeBytes)];
     _headerPoints.text = headerPoints;
     
     NSString *headerLines = [NSString stringWithFormat:@"Lines:  %u", header.bmodeScanlines];
@@ -88,6 +78,7 @@
     
     NSString *headerTotalBytes = [NSString stringWithFormat:@"Total Scan:  %u bytes", header.n];
     _headerTotalBytes.text = headerTotalBytes;
+    
     
 }
 

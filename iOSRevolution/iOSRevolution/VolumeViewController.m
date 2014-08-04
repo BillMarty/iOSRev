@@ -7,8 +7,11 @@
 //
 
 #import "VolumeViewController.h"
+#import "HeaderDisplayViewController.h"
 #import "DBMHeader.h"
 #import "DBMMediator.h"
+#import "DBMScan.h"
+#import "DBMSlice.h"
 
 @interface VolumeViewController ()
 
@@ -29,69 +32,26 @@
 {
     [super viewDidLoad];
     
-    DBMMediator *mediator = [[DBMMediator alloc] init];
     
-    [mediator grabWholeScan];
+    // Chunk of code to bring in data, parse to header variables
     
-    DBMHeader *header = [[DBMHeader alloc] init];
+    DBMMediator *mediator = [DBMMediator sharedMediator];
     
-    [header generateVarVals:mediator.wholeScan];
-    // [header logHeader];
+    DBMScan *scan = [mediator scan];
+    
+    DBMHeader *header = [DBMHeader headerFromScan:scan];
+    
+    [scan createAndFill8Slices];
+    
+    for (NSInteger sliceCount = 0; sliceCount < 8; sliceCount++) {
+        DBLog(@"Delimiter for slice #%ld: %hu", (long)sliceCount, [scan.slices[sliceCount] sampleForLine:119 point:601]);
+    }
+    
+    
+    // Displaying the volume reading to the screen
     
     NSString *volumeDisplay = [NSString stringWithFormat:@"%uml", header.volume3D];
-    _volumeNumDisplay.text = volumeDisplay;
-    
-    /* unsigned char *charbuffer;
-    int points = header.amodeBytes;
-    int cols = header.bmodeScanlines;
-    int sls = header.cmodeSlices;
-    
-    NSRange range;
-    range.location = 32;
-    range.length = points;
-    
-    NSMutableArray *slices = [[NSMutableArray alloc] init];
-    
-    for (int j = 0; j < sls; j++) {
-        NSMutableArray *frame = [[NSMutableArray alloc] init];
-        for (int i = 0; i < cols; i++) {
-            charbuffer = nil;
-            charbuffer = malloc(points);
-        
-            NSMutableData *row = [[NSMutableData alloc] init];
-            [mediator.wholeScan getBytes:charbuffer range:range];
-            [row appendBytes:charbuffer length:points];
-            
-            [frame addObject:row];
-        }
-        [slices addObject:frame];
-    }
-    NSLog(@"%@", slices[0][0]); */
-    
-    
-    
-    
-    int samples = (header.amodeBytes / 2);  // converting bytes to samples
-    
-    unsigned short *shortPtr = [mediator.wholeScan mutableBytes];
-    shortPtr += 16;  // Increment past the header to point at 17th u short
-    
-    unsigned short array[header.bmodeScanlines][samples];
-    
-    
-    for (int j = 0; j < header.bmodeScanlines; j++) {
-        for (int k = 0; k < samples; k++) {
-            array[j][k] = *shortPtr++;
-        }
-    }
-    
-    for (int n = 0; n < 120; n++) {
-        NSLog(@"%x", array[n][601]);
-    }
-    
-    
-    
-    
+    self.volumeNumDisplay.text = volumeDisplay;
     
 }
 

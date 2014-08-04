@@ -7,10 +7,11 @@
 //
 
 #import "DBMHeader.h"
+#import "DBMScan.h"
 
 @implementation DBMHeader
 
-- (NSUInteger)firstFour:(NSMutableData *)ws {
+- (NSUInteger)firstFour:(NSData *)ws {
     charbuffer = malloc(4);
     NSRange range;
     range.location = 0;
@@ -24,13 +25,14 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)dimensionsFour:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)dimensionsFour:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(8);
     NSRange range;
     range.location = location;
     range.length = 8;
     [ws getBytes:shortbuffer range:range];
     _amodeBytes = shortbuffer[0];
+    _amodeBytes = _amodeBytes / 2;
     _bmodeScanlines = shortbuffer[1];
     _cmodeSlices = shortbuffer[2];
     _dmodeFrames = shortbuffer[3];
@@ -38,7 +40,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)resolutionFive:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)resolutionFive:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(10);
     NSRange range;
     range.location = 12;
@@ -53,7 +55,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)schemeAndWallsTwo:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)schemeAndWallsTwo:(NSData *)ws nextloc:(NSUInteger)location {
     charbuffer = malloc(2);
     NSRange range;
     range.location = 22;
@@ -65,7 +67,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)volumeOne:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)volumeOne:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(2);
     NSRange range;
     range.location = 24;
@@ -76,7 +78,7 @@
     return range.location + range.length;
 }
 
-- (NSUInteger)rsrvd2:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (NSUInteger)rsrvd2:(NSData *)ws nextloc:(NSUInteger)location {
     shortbuffer = malloc(2);
     NSRange range;
     range.location = 26;
@@ -87,7 +89,7 @@
     return range.location + range.length;
 }
 
-- (void)n:(NSMutableData *)ws nextloc:(NSUInteger)location {
+- (void)n:(NSData *)ws nextloc:(NSUInteger)location {
     intbuffer = malloc(4);
     NSRange range;
     range.location = 28;
@@ -96,7 +98,16 @@
     _n = intbuffer[0];
 }
 
-- (void)generateVarVals:(NSMutableData *)ws {
++ (DBMHeader *)headerFromScan:(DBMScan *)scan
+{
+    DBMHeader *result = [[DBMHeader alloc] init];
+    [result generateVarVals:scan.rawData];
+    return result;
+}
+
+
+// Method to essentially combine my previous 7 into one easy to use method
+- (void)generateVarVals:(NSData *)ws {
     NSUInteger nextLocation = [self firstFour:ws];
     nextLocation = [self dimensionsFour:ws nextloc:nextLocation];
     nextLocation = [self resolutionFive:ws nextloc:nextLocation];
@@ -105,6 +116,9 @@
     nextLocation = [self rsrvd2:ws nextloc:nextLocation];
     [self n:ws nextloc:nextLocation];
 }
+
+
+// Log the header data in a user friendly way
 
 - (void)logHeader {
     NSLog(@" %c%c%c%c", _byte1, _byte2, _byte3, _byte4);

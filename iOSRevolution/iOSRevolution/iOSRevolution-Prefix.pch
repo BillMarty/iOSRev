@@ -14,3 +14,15 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#if DEBUG
+#define DBLog(args...)    NSLog( @"%@", [NSString stringWithFormat: args])
+#define LogMethod() NSLog(@"%s (line %d) %@", __PRETTY_FUNCTION__, __LINE__, [NSThread isMainThread] ? @"" : [NSThread currentThread])
+
+#else
+// DEBUG not defined:
+
+#define DBLog(args...)    // do nothing.
+#define LogMethod()
+
+#endif
