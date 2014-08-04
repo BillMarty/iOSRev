@@ -54,7 +54,7 @@
     NSString *headerVolume = [NSString stringWithFormat:@"Volume: %u", header.volume3D];
     _headerVolume.text = headerVolume;
     
-    NSString *headerPoints = [NSString stringWithFormat:@"Points: %u", (header.amodeBytes / 2)];
+    NSString *headerPoints = [NSString stringWithFormat:@"Points: %u", (header.amodeBytes)];
     _headerPoints.text = headerPoints;
     
     NSString *headerLines = [NSString stringWithFormat:@"Lines: %u", header.bmodeScanlines];

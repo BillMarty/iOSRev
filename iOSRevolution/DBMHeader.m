@@ -98,8 +98,6 @@
     _n = intbuffer[0];
 }
 
-
-// Method to essentially combine my previous 7 into one easy to use method
 + (DBMHeader *)headerFromScan:(DBMScan *)scan
 {
     DBMHeader *result = [[DBMHeader alloc] init];
@@ -107,6 +105,8 @@
     return result;
 }
 
+
+// Method to essentially combine my previous 7 into one easy to use method
 - (void)generateVarVals:(NSData *)ws {
     NSUInteger nextLocation = [self firstFour:ws];
     nextLocation = [self dimensionsFour:ws nextloc:nextLocation];
