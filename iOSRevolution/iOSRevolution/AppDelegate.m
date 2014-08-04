@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DBMMediator.h"
 
 @implementation AppDelegate
 
