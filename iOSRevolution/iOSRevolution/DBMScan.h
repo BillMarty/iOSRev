@@ -16,10 +16,11 @@
 
 @property (nonatomic, strong, readonly) DBMHeader *header;
 @property (nonatomic, copy, readonly) NSData *rawData;
-@property (nonatomic, strong, readonly) NSMutableArray *slices;
+@property (nonatomic, strong, readonly) NSArray *slices;
 
 + (DBMScan *)scanWithData:(NSData *)data;
-- (void)fill8Slices;
+- (void)createAndFill8Slices;
+// - (void)fill8Slices;
 - (void)slicesLogTest;
 
 @end

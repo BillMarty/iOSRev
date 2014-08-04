@@ -32,6 +32,7 @@
     range.length = 8;
     [ws getBytes:shortbuffer range:range];
     _amodeBytes = shortbuffer[0];
+    _amodeBytes = _amodeBytes / 2;
     _bmodeScanlines = shortbuffer[1];
     _cmodeSlices = shortbuffer[2];
     _dmodeFrames = shortbuffer[3];

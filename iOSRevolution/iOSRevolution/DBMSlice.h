@@ -30,5 +30,7 @@
 - (const uint16_t *)fillArray:(const uint16_t *)shortPtr;
 - (void)logTest;
 - (void)fillSliceArrayWith:(uint16_t)fillValue;
+- (void)fillSliceNumber:(NSInteger)sliceNum fromData:(NSData*)wholeScan;
+- (uint16_t)sampleForLine:(uint16_t)line point:(uint16_t)point;
 
 @end

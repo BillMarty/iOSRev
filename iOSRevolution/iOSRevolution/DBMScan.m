@@ -13,7 +13,7 @@
 @interface DBMScan ()
 @property (nonatomic, strong) DBMHeader *header;
 @property (nonatomic, copy) NSData *rawData;
-@property (nonatomic, strong) NSMutableArray *slices;
+@property (nonatomic, strong) NSArray *slices;
 @end
 
 
@@ -42,7 +42,18 @@
     return _slices;
 } */
 
-- (void)fill8Slices
+- (void)createAndFill8Slices
+{
+    NSMutableArray *tempSliceArray = [[NSMutableArray alloc] init];
+    for (NSInteger sliceCount = 0; sliceCount < 8; sliceCount++) {
+        DBMSlice *slice = [[DBMSlice alloc] initWithLines:self.header.bmodeScanlines points:self.header.amodeBytes walls:self.header.includedWalls];
+        [slice fillSliceNumber:sliceCount fromData:self.rawData];
+        [tempSliceArray addObject:slice];
+    }
+    self.slices = tempSliceArray;
+}
+
+/* - (void)fill8Slices
 {
     DBLog(@"%p", self.rawData);
     const unsigned short *rawDataOffsetPtr = [self.rawData bytes];
@@ -56,7 +67,7 @@
         DBLog(@"Memory Location: %p", self.slices);
     }
     
-}
+} */
 
 - (void)slicesLogTest
 {

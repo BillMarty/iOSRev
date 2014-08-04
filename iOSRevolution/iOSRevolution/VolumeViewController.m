@@ -11,6 +11,7 @@
 #import "DBMHeader.h"
 #import "DBMMediator.h"
 #import "DBMScan.h"
+#import "DBMSlice.h"
 
 @interface VolumeViewController ()
 
@@ -26,15 +27,6 @@
     }
     return self;
 }
-/*
-- (void) prepareForSegue : (UIStoryboardSegue *) segue sender : (id) sender {
-    if ([segue.identifier isEqualToString : @"HeaderSegue"]) {
-        HeaderDisplayViewController *nextController = [segue destinationViewController];
-        
-        nextController.mediator =
-    }
-}
-*/
 
 - (void)viewDidLoad
 {
@@ -49,9 +41,16 @@
     
     DBMHeader *header = [DBMHeader headerFromScan:scan];
     
-    DBLog(@"%@", header);
+    [scan createAndFill8Slices];
     
-    [scan fill8Slices];
+    for (NSInteger sliceCount = 0; sliceCount < 8; sliceCount++) {
+        DBLog(@"Delimiter for slice #%ld: %hu", (long)sliceCount, [scan.slices[sliceCount] sampleForLine:119 point:601]);
+    }
+
+    // DBLog(@"%@", header);
+    
+    
+    // [scan fill8Slices];
     // [scan slicesLogTest];
     
     
@@ -59,64 +58,6 @@
     
     NSString *volumeDisplay = [NSString stringWithFormat:@"%uml", header.volume3D];
     self.volumeNumDisplay.text = volumeDisplay;
-    
-    
-    
-    // Earlier attempt at filling a 3D array of NSMutableArrays... Did not work...
-    
-    /* unsigned char *charbuffer;
-    int points = header.amodeBytes;
-    int cols = header.bmodeScanlines;
-    int sls = header.cmodeSlices;
-    
-    NSRange range;
-    range.location = 32;
-    range.length = points;
-    
-    NSMutableArray *slices = [[NSMutableArray alloc] init];
-    
-    for (int j = 0; j < sls; j++) {
-        NSMutableArray *frame = [[NSMutableArray alloc] init];
-        for (int i = 0; i < cols; i++) {
-            charbuffer = nil;
-            charbuffer = malloc(points);
-        
-            NSData *row = [[NSData alloc] init];
-            [mediator.wholeScan getBytes:charbuffer range:range];
-            [row appendBytes:charbuffer length:points];
-            
-            [frame addObject:row];
-        }
-        [slices addObject:frame];
-    }
-    NSLog(@"%@", slices[0][0]); */
-    
-    
-    
-    // Working way to fill a 2D array with the data needed, and used a pointer.
-    // Just need to add this to an object, problem comes when I can't declare array size at build time
-    
-    /* int samples = (header.amodeBytes / 2);  // converting bytes to samples
-    
-    unsigned short *shortPtr = [mediator.wholeScan mutableBytes];
-    shortPtr += 16;  // Increment past the header to point at 17th u short
-    
-    unsigned short array[header.bmodeScanlines][samples];
-    
-    
-    for (int j = 0; j < header.bmodeScanlines; j++) {
-        for (int k = 0; k < samples; k++) {
-            array[j][k] = *shortPtr++;
-        }
-    }
-    
-    for (int n = 0; n < 120; n++) {
-        NSLog(@"%x", array[n][601]);
-    }
-    */
-    
-    
-    
     
 }
 

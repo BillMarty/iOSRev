@@ -21,8 +21,7 @@
         _lines = lines;
         _points = points;
         _walls = walls;
-        _linesPointsArray = malloc(lines*points*sizeof(uint16_t));
-        [self fillSliceArrayWith:7];
+        _linesPointsArray = malloc(2*lines*points*sizeof(uint16_t));
     }
     
     return self;
@@ -63,6 +62,21 @@
         }
     }
     return rawDataOffsetPtr;
+}
+
+- (void)fillSliceNumber:(NSInteger)sliceNum fromData:(NSData*)wholeScan
+{
+    NSRange range;
+    // location and length are in bytes, and our samples are in 2 byte chunks, hence the *2s
+    range.location = (32 + 2*(self.lines * self.points) * sliceNum);
+    range.length = 2*(self.lines * self.points);
+    
+    [wholeScan getBytes:self.linesPointsArray range:range];
+}
+
+- (uint16_t)sampleForLine:(uint16_t)line point:(uint16_t)point
+{
+    return self.linesPointsArray[((self.points * line) + point)];
 }
 
 - (void)logTest
