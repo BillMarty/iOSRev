@@ -46,12 +46,6 @@
     for (NSInteger sliceCount = 0; sliceCount < 8; sliceCount++) {
         DBLog(@"Delimiter for slice #%ld: %hu", (long)sliceCount, [scan.slices[sliceCount] sampleForLine:119 point:601]);
     }
-
-    // DBLog(@"%@", header);
-    
-    
-    // [scan fill8Slices];
-    // [scan slicesLogTest];
     
     
     // Displaying the volume reading to the screen

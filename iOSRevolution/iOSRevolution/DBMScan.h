@@ -20,7 +20,5 @@
 
 + (DBMScan *)scanWithData:(NSData *)data;
 - (void)createAndFill8Slices;
-// - (void)fill8Slices;
-- (void)slicesLogTest;
 
 @end

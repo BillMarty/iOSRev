@@ -31,34 +31,23 @@
 {
     [super viewDidLoad];
     
+    // Chunk of code to bring in data, parse to header variables
     
-    // Chunk of code that brings in the data from the file and creates a header with correct values
-    // I shouldn't need this here once I figure out how to "pass an object to the next view"
+    DBMMediator *mediator = [DBMMediator sharedMediator];
     
-    /* DBMMediator *mediator = [[DBMMediator alloc] init];
+    DBMScan *scan = [mediator scan];
     
-    [mediator grabWholeScan];
+    DBMHeader *header = [DBMHeader headerFromScan:scan];
     
-    DBMHeader *header = [[DBMHeader alloc] init];
+    [scan createAndFill8Slices];
     
-    [header generateVarVals:mediator.wholeScan];
-    // [header logHeader]; */
-    
-    
-    
-    // Attempt at using my new DBMSlice object.  Works up until filling the array
-    
-    
-    
-    /* for (int n = 0; n < header.bmodeScanlines; n++) {
-        NSLog(@"%@", testSlice.linesArray[n][300]);
-    } */
-    
+    for (NSInteger sliceCount = 0; sliceCount < 8; sliceCount++) {
+        DBLog(@"Delimiter for slice #%ld: %hu", (long)sliceCount, [scan.slices[sliceCount] sampleForLine:119 point:601]);
+    }
     
     
     // Populating all of the label items on this page ...
-
-    /* 
+    
     NSString *headerDataType = [NSString stringWithFormat:@"Data Type: %c%c%c%c", header.byte1, header.byte2, header.byte3, header.byte4];
     _headerDataType.text = headerDataType;
     
@@ -89,7 +78,6 @@
     
     NSString *headerTotalBytes = [NSString stringWithFormat:@"Total Scan: %u bytes", header.n];
     _headerTotalBytes.text = headerTotalBytes;
-    */
     
     
 }

@@ -13,9 +13,6 @@
 
 
 @interface DBMSlice : NSObject
-{
-//    uint16_t linesPointsArray[LINES_ARRAY_SIZE][POINTS_ARRAY_SIZE];
-}
 
 @property (nonatomic, assign) uint16_t *linesPointsArray;
 @property (nonatomic, assign) uint16_t lines;
@@ -26,10 +23,6 @@
 @property (nonatomic, copy) NSMutableArray *linesArray;
 
 - (instancetype)initWithLines:(uint16_t)lines points:(uint16_t)points walls:(uint16_t)walls;
-- (void)populateVariablesWithLines:(uint16_t)lines points:(uint16_t)points walls:(uint16_t)walls;
-- (const uint16_t *)fillArray:(const uint16_t *)shortPtr;
-- (void)logTest;
-- (void)fillSliceArrayWith:(uint16_t)fillValue;
 - (void)fillSliceNumber:(NSInteger)sliceNum fromData:(NSData*)wholeScan;
 - (uint16_t)sampleForLine:(uint16_t)line point:(uint16_t)point;
 
